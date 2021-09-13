@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include "qrencode.h"
-#include "qrcode_ST7789.h"
+#include "qrcode_st7789.h"
 
 
 QRcode_ST7789::QRcode_ST7789(Adafruit_ST7789 *display) {
@@ -9,15 +9,16 @@ QRcode_ST7789::QRcode_ST7789(Adafruit_ST7789 *display) {
 
 
 void QRcode_ST7789::init() {
-    //display->init();
+    display->setRotation(3);
     this->screenwidth = display->width();
     this->screenheight = display->height();
-    display->setRotation(1);
     display->fillScreen(ST77XX_WHITE);
     int min = screenwidth;
     if (screenheight<screenwidth)
         min = screenheight;
     multiply = min/WD;
+    if  (multiply>1)
+        multiply = 2;
     offsetsX = (screenwidth-(WD*multiply))/2;
     offsetsY = (screenheight-(WD*multiply))/2;
 }
