@@ -6,7 +6,7 @@
 
 #define TFTDISPLAY
 
-#include "qrcode.h"
+#include "qrcodedisplay.h"
 #include <Adafruit_GFX.h>   
 #include <Adafruit_ST7789.h>
 
