@@ -17,8 +17,6 @@ void QRcode_ST7789::init() {
     if (screenheight<screenwidth)
         min = screenheight;
     multiply = min/WD;
-    if  (multiply>1)
-        multiply = 2;
     offsetsX = (screenwidth-(WD*multiply))/2;
     offsetsY = (screenheight-(WD*multiply))/2;
 }
